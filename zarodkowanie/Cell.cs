@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfLife2D
+namespace zarodkowanie
 {
     class Cell
     {
-        public bool Life { get; set; }
+        public int Life { get; set; }
         public int[] id = new int[2];
         public int[,] neighbors = new int[8, 2];
 
 
         public Cell()
         {
-            this.Life = false;
+            this.Life = 0;
             this.id[0] = 0;
             this.id[1] = 0;
         }
 
-        public Cell(int[] id, bool life, int boardSize)
+        public Cell(int[] id, int life, int boardSize)
         {
             this.id = id;
             this.Life = life;

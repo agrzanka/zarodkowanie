@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameOfLife2D
+namespace zarodkowanie
 {
     class Board
     {
@@ -25,7 +25,7 @@ namespace GameOfLife2D
                 for (int s = 0; s < boardH; s++)
                 {
                     int[] idd = { i, s };
-                    this.cells[i, s] = new Cell(idd, false, size);
+                    this.cells[i, s] = new Cell(idd, 0, size);
                 }
             }
 
@@ -35,42 +35,76 @@ namespace GameOfLife2D
             }
         }
 
-        
 
-        public void setup_const()
+
+        public void setup_randomly(int z)
         {
-            this.cells[1, 1].Life = true;
-            this.cells[2, 1].Life = true;
-            this.cells[1, 2].Life = true;
-            this.cells[2, 2].Life = true;
+            Random x = new Random();
+            Random y = new Random();
+
+            for (int i = 1; i < z+1; i++)
+            {
+                int xx = x.Next(0, size - 1);
+                int yy = y.Next(0, boardH - 1);
+
+                cells[xx, yy].Life = i;
+            }
+
         }
 
 
-        public void update()
+        public void update(int z)
         {
-            List<int[]> nextRoundAlive = new List<int[]>();
-
+            List<int[]>[] nextRound = new List<int[]>[z+1];
+            for (int nR = 0; nR < z + 1; nR++)
+                nextRound[nR] = new List<int[]>();
             foreach (var c in this.cells)
             {
-                int alive = 0;
-                for (int n = 0; n < 8; n++)
+                int [] alive =new int[z];
+                for (int i = 0; i < z; i++)
+                    alive[i] = 0;
+
+                for (int neigh = 0; neigh < 8; neigh++)
                 {
-                    if (this.cells[c.neighbors[n, 0], c.neighbors[n, 1]].Life == true)
-                        alive++;
+                    if (this.cells[c.neighbors[neigh, 0], c.neighbors[neigh, 1]].Life >0)
+                        alive[this.cells[c.neighbors[neigh, 0], c.neighbors[neigh, 1]].Life-1]++;
                 }
-                if (c.Life == true && (alive == 2 || alive == 3))
-                    nextRoundAlive.Add(c.id);
-                else if (c.Life == false && alive == 3)
-                    nextRoundAlive.Add(c.id);
+
+                int colour=0;
+                int n = 0;
+
+                for(int i=0;i<z;i++)
+                {
+                    if (n < alive[i])
+                    {
+                        colour = i+1;
+                        n = alive[i];
+                    }
+                }
+
+                nextRound[colour].Add(c.id);
+              //  if (c.Life == 1 && (alive == 2 || alive == 3))
+             //       nextRoundAlive.Add(c.id);
+             //   else if (c.Life == false && alive == 3)
+             //       nextRoundAlive.Add(c.id);
             }
 
-            foreach (var c in this.cells)
+            for (int i=0;i<z+1;i++)
             {
-                if (nextRoundAlive.Contains(c.id))
-                    c.Life = true;
-                else
-                    c.Life = false;
+                for (int j=0;j<nextRound[i].Count;j++)
+                {
+                    if(cells[nextRound[i][j][0], nextRound[i][j][1]].Life==0)
+                        cells[nextRound[i][j][0], nextRound[i][j][1]].Life = i;
+                }
             }
+
+           // foreach (var c in this.cells)
+           // {
+           //     if (nextRoundAlive.Contains(c.id))
+           //         c.Life = true;
+           //     else
+           //         c.Life = false;
+           // }
         }
     }
 }
