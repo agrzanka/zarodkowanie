@@ -70,7 +70,7 @@ namespace zarodkowanie
             {
 
                 Thread.Sleep(300);
-                panel1.Refresh();
+                //panel1.Refresh();
                 zarodkowanie.startBoard.update(zarodki);
                 zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
 

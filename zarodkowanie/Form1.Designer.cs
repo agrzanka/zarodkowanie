@@ -37,17 +37,16 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -160,21 +159,13 @@
             0,
             0});
             // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown4.Location = new System.Drawing.Point(637, 304);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(120, 30);
-            this.numericUpDown4.TabIndex = 8;
-            // 
             // domainUpDown1
             // 
             this.domainUpDown1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.domainUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domainUpDown1.Items.Add("periodic");
             this.domainUpDown1.Items.Add("nonperiodic");
-            this.domainUpDown1.Location = new System.Drawing.Point(688, 449);
+            this.domainUpDown1.Location = new System.Drawing.Point(682, 341);
             this.domainUpDown1.Name = "domainUpDown1";
             this.domainUpDown1.ReadOnly = true;
             this.domainUpDown1.Size = new System.Drawing.Size(246, 30);
@@ -211,38 +202,50 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "liczba zarodkow";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(637, 276);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 25);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "label4";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(724, 421);
+            this.label5.Location = new System.Drawing.Point(720, 313);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 25);
             this.label5.TabIndex = 14;
             this.label5.Text = "warunki brzegowe";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(720, 430);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 25);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "typ sąsiedztwa";
+            // 
+            // domainUpDown2
+            // 
+            this.domainUpDown2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.domainUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.domainUpDown2.Items.Add("Moore");
+            this.domainUpDown2.Items.Add("von Neumann");
+            this.domainUpDown2.Location = new System.Drawing.Point(682, 481);
+            this.domainUpDown2.Name = "domainUpDown2";
+            this.domainUpDown2.ReadOnly = true;
+            this.domainUpDown2.Size = new System.Drawing.Size(246, 30);
+            this.domainUpDown2.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.domainUpDown2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.domainUpDown1);
-            this.Controls.Add(this.numericUpDown4);
             this.Controls.Add(this.numericUpDown3);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
@@ -259,7 +262,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,13 +277,13 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.DomainUpDown domainUpDown1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DomainUpDown domainUpDown2;
     }
 }
 

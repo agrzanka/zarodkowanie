@@ -34,7 +34,7 @@ namespace zarodkowanie
                 for (int s = 0; s < startBoard.size; s++)
                     for(int colour=1;colour<zarodki+1;colour++)
                         if (startBoard.cells[s, i].Life == colour)
-                            graphics.FillRectangle(brush[colour-1], s * this.cellSize + 1, i * this.cellSize + 1, this.cellSize - 1, this.cellSize - 1);
+                            graphics.FillRectangle(brush[colour-1], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
 
         }
     }
