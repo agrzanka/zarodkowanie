@@ -83,10 +83,6 @@ namespace zarodkowanie
                 }
 
                 nextRound[colour].Add(c.id);
-              //  if (c.Life == 1 && (alive == 2 || alive == 3))
-             //       nextRoundAlive.Add(c.id);
-             //   else if (c.Life == false && alive == 3)
-             //       nextRoundAlive.Add(c.id);
             }
 
             for (int i=0;i<z+1;i++)
@@ -97,14 +93,6 @@ namespace zarodkowanie
                         cells[nextRound[i][j][0], nextRound[i][j][1]].Life = i;
                 }
             }
-
-           // foreach (var c in this.cells)
-           // {
-           //     if (nextRoundAlive.Contains(c.id))
-           //         c.Life = true;
-           //     else
-           //         c.Life = false;
-           // }
         }
     }
 }

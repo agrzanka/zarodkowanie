@@ -78,3 +78,62 @@ namespace zarodkowanie
 
     }
 }
+
+
+/*typy sąsiedztw
+ 
+    Moore'a :
+    usefullNeighbours=neighbours;
+
+    von Neumanna:
+    usefullNeighbors[0]=neighbors[0];
+    usefullNeighbors[1]=neighbors[2];
+    usefullNeighbors[2]=neighbors[4];
+    usefullNeighbors[3]=neighbors[6];
+
+    hexagonalne lewe:
+    usefullNeighbors[0]=neighbors[0];
+    usefullNeighbors[1]=neighbors[2];
+    usefullNeighbors[2]=neighbors[3];
+    usefullNeighbors[3]=neighbors[4];
+    usefullNeighbors[4]=neighbors[6];
+    usefullNeighbors[5]=neighbors[7];
+
+    hexagonalne prawe:
+    usefullNeighbors[0]=neighbors[0];
+    usefullNeighbors[1]=neighbors[1];
+    usefullNeighbors[2]=neighbors[2];
+    usefullNeighbors[3]=neighbors[4];
+    usefullNeighbors[4]=neighbors[5];
+    usefullNeighbors[5]=neighbors[6];
+
+    pentagonalne lewe:
+    usefullNeighbors[0]=neighbors[0];
+    usefullNeighbors[1]=neighbors[1];
+    usefullNeighbors[2]=neighbors[2];
+    usefullNeighbors[3]=neighbors[6];
+    usefullNeighbors[4]=neighbors[7];
+
+    pentagonalne prawe:
+    usefullNeighbors[0]=neighbors[2];
+    usefullNeighbors[1]=neighbors[3];
+    usefullNeighbors[2]=neighbors[4];
+    usefullNeighbors[3]=neighbors[5];
+    usefullNeighbors[4]=neighbors[6];
+
+    pentagonalne górne:
+    usefullNeighbors[0]=neighbors[0];
+    usefullNeighbors[1]=neighbors[1];
+    usefullNeighbors[2]=neighbors[2];
+    usefullNeighbors[3]=neighbors[3];
+    usefullNeighbors[4]=neighbors[4];
+
+    pentagonalne górne:
+    usefullNeighbors[0]=neighbors[4];
+    usefullNeighbors[1]=neighbors[5];
+    usefullNeighbors[2]=neighbors[6];
+    usefullNeighbors[3]=neighbors[7];
+    usefullNeighbors[4]=neighbors[0];
+
+
+ */
