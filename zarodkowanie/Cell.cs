@@ -80,60 +80,120 @@ namespace zarodkowanie
 }
 
 
-/*typy sąsiedztw
+/*
+ * neighborhood schema:
  
-    Moore'a :
+    ================ MOORE'A ====================================================
+
     usefullNeighbours=neighbours;
 
-    von Neumanna:
-    usefullNeighbors[0]=neighbors[0];
-    usefullNeighbors[1]=neighbors[2];
-    usefullNeighbors[2]=neighbors[4];
-    usefullNeighbors[3]=neighbors[6];
 
-    hexagonalne lewe:
-    usefullNeighbors[0]=neighbors[0];
-    usefullNeighbors[1]=neighbors[2];
-    usefullNeighbors[2]=neighbors[3];
-    usefullNeighbors[3]=neighbors[4];
-    usefullNeighbors[4]=neighbors[6];
-    usefullNeighbors[5]=neighbors[7];
+    ================ VON NEUMANNA ===============================================
 
-    hexagonalne prawe:
-    usefullNeighbors[0]=neighbors[0];
-    usefullNeighbors[1]=neighbors[1];
-    usefullNeighbors[2]=neighbors[2];
-    usefullNeighbors[3]=neighbors[4];
-    usefullNeighbors[4]=neighbors[5];
-    usefullNeighbors[5]=neighbors[6];
+    usefullNeighbors[0,0]=neighbors[0,0];
+    usefullNeighbors[0,1]=neighbors[0,1];
 
-    pentagonalne lewe:
-    usefullNeighbors[0]=neighbors[0];
-    usefullNeighbors[1]=neighbors[1];
-    usefullNeighbors[2]=neighbors[2];
-    usefullNeighbors[3]=neighbors[6];
-    usefullNeighbors[4]=neighbors[7];
+    usefullNeighbors[1,0]=neighbors[2,0];
+    usefullNeighbors[1,1]=neighbors[2,1];
 
-    pentagonalne prawe:
-    usefullNeighbors[0]=neighbors[2];
-    usefullNeighbors[1]=neighbors[3];
-    usefullNeighbors[2]=neighbors[4];
-    usefullNeighbors[3]=neighbors[5];
-    usefullNeighbors[4]=neighbors[6];
+    usefullNeighbors[2,0]=neighbors[4,0];
+    usefullNeighbors[2,1]=neighbors[4,1];
 
-    pentagonalne górne:
-    usefullNeighbors[0]=neighbors[0];
-    usefullNeighbors[1]=neighbors[1];
-    usefullNeighbors[2]=neighbors[2];
-    usefullNeighbors[3]=neighbors[3];
-    usefullNeighbors[4]=neighbors[4];
+    usefullNeighbors[3,0]=neighbors[6,0];
+    usefullNeighbors[3,1]=neighbors[6,1];
 
-    pentagonalne górne:
-    usefullNeighbors[0]=neighbors[4];
-    usefullNeighbors[1]=neighbors[5];
-    usefullNeighbors[2]=neighbors[6];
-    usefullNeighbors[3]=neighbors[7];
-    usefullNeighbors[4]=neighbors[0];
+
+    ================ HEXAGONALNE LEWE ============================================
+
+    usefullNeighbors[0,0]=neighbors[0,0];
+    usefullNeighbors[1,0]=neighbors[2,0];
+    usefullNeighbors[2,0]=neighbors[3,0];
+    usefullNeighbors[3,0]=neighbors[4,0];
+    usefullNeighbors[4,0]=neighbors[6,0];
+    usefullNeighbors[5,0]=neighbors[7,0];
+
+    usefullNeighbors[0,1]=neighbors[0,1];
+    usefullNeighbors[1,1]=neighbors[2,1];
+    usefullNeighbors[2,1]=neighbors[3,1];
+    usefullNeighbors[3,1]=neighbors[4,1];
+    usefullNeighbors[4,1]=neighbors[6,1];
+    usefullNeighbors[5,1]=neighbors[7,1];
+
+
+    ================ HEXAGONALNE PRAWE ============================================
+
+    usefullNeighbors[0,0]=neighbors[0,0];
+    usefullNeighbors[1,0]=neighbors[1,0];
+    usefullNeighbors[2,0]=neighbors[2,0];
+    usefullNeighbors[3,0]=neighbors[4,0];
+    usefullNeighbors[4,0]=neighbors[5,0];
+    usefullNeighbors[5,0]=neighbors[6,0];
+
+    usefullNeighbors[0,1]=neighbors[0,1];
+    usefullNeighbors[1,1]=neighbors[1,1];
+    usefullNeighbors[2,1]=neighbors[2,1];
+    usefullNeighbors[3,1]=neighbors[4,1];
+    usefullNeighbors[4,1]=neighbors[5,1];
+    usefullNeighbors[5,1]=neighbors[6,1];
+
+
+    ================ PENTAGONALNE LEWE =============================================
+
+    usefullNeighbors[0,0]=neighbors[0,0];
+    usefullNeighbors[1,0]=neighbors[1,0];
+    usefullNeighbors[2,0]=neighbors[2,0];
+    usefullNeighbors[3,0]=neighbors[6,0];
+    usefullNeighbors[4,0]=neighbors[7,0];
+
+    usefullNeighbors[0,1]=neighbors[0,1];
+    usefullNeighbors[1,1]=neighbors[1,1];
+    usefullNeighbors[2,1]=neighbors[2,1];
+    usefullNeighbors[3,1]=neighbors[6,1];
+    usefullNeighbors[4,1]=neighbors[7,1];
+
+
+   ================ PENTAGONALNE PRAWE =============================================
+
+    usefullNeighbors[0,0]=neighbors[2,0];
+    usefullNeighbors[1,0]=neighbors[3,0];
+    usefullNeighbors[2,0]=neighbors[4,0];
+    usefullNeighbors[3,0]=neighbors[5,0];
+    usefullNeighbors[4,0]=neighbors[6,0];
+
+    usefullNeighbors[0,1]=neighbors[2,1];
+    usefullNeighbors[1,1]=neighbors[3,1];
+    usefullNeighbors[2,1]=neighbors[4,1];
+    usefullNeighbors[3,1]=neighbors[5,1];
+    usefullNeighbors[4,1]=neighbors[6,1];
+    
+
+    ================ PENTAGONALNE GÓRNE =============================================
+
+    usefullNeighbors[0,0]=neighbors[0,0];
+    usefullNeighbors[1,0]=neighbors[1,0];
+    usefullNeighbors[2,0]=neighbors[2,0];
+    usefullNeighbors[3,0]=neighbors[3,0];
+    usefullNeighbors[4,0]=neighbors[4,0];
+
+    usefullNeighbors[0,1]=neighbors[0,1];
+    usefullNeighbors[1,1]=neighbors[1,1];
+    usefullNeighbors[2,1]=neighbors[2,1];
+    usefullNeighbors[3,1]=neighbors[3,1];
+    usefullNeighbors[4,1]=neighbors[4,1];
+
+    ================ PENTAGONALNE DOLNE =============================================
+
+    usefullNeighbors[0,0]=neighbors[4,0];
+    usefullNeighbors[1,0]=neighbors[5,0];
+    usefullNeighbors[2,0]=neighbors[6,0];
+    usefullNeighbors[3,0]=neighbors[7,0];
+    usefullNeighbors[4,0]=neighbors[0,0];
+
+    usefullNeighbors[0,1]=neighbors[4,1];
+    usefullNeighbors[1,1]=neighbors[5,1];
+    usefullNeighbors[2,1]=neighbors[6,1];
+    usefullNeighbors[3,1]=neighbors[7,1];
+    usefullNeighbors[4,1]=neighbors[0,1];
 
 
  */
