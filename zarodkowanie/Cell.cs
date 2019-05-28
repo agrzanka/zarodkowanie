@@ -10,8 +10,8 @@ namespace zarodkowanie
     {
         public int Life { get; set; }
         public int[] id = new int[2];
-        public int[,] neighbors = new int[8, 2];
-
+        public int[,] neighbors;// = new int[8, 2];
+      //  public int[,] nUsable;
 
         public Cell()
         {
@@ -27,7 +27,7 @@ namespace zarodkowanie
 
         }
         //periodical boundary conditions
-        public void setNeighbors(int boardSize, int boardH)
+        public void setNeighbors(int boardSize, int boardH, int nType)
         {
             int x1, x2, y1, y2;
 
@@ -48,29 +48,57 @@ namespace zarodkowanie
             else y2 = this.id[1] + 1;
 
 
-            this.neighbors[0, 0] = x1;
-            this.neighbors[0, 1] = this.id[1];
+            switch (nType)
+            {
+                //==========vonNeumann==================
+                case 1: 
+                    this.neighbors = new int[4, 2];
 
-            this.neighbors[1, 0] = x1;
-            this.neighbors[1, 1] = y1;
+                    this.neighbors[0, 0] = x1;
+                    this.neighbors[0, 1] = this.id[1];
 
-            this.neighbors[2, 0] = this.id[0];
-            this.neighbors[2, 1] = y1;
+                    this.neighbors[1, 0] = this.id[0];
+                    this.neighbors[1, 1] = y1;
 
-            this.neighbors[3, 0] = x2;
-            this.neighbors[3, 1] = y1;
+                    this.neighbors[2, 0] = x2;
+                    this.neighbors[2, 1] = this.id[1];
 
-            this.neighbors[4, 0] = x2;
-            this.neighbors[4, 1] = this.id[1];
+                    this.neighbors[3, 0] = this.id[0];
+                    this.neighbors[3, 1] = y2;
+                    break;
 
-            this.neighbors[5, 0] = x2;
-            this.neighbors[5, 1] = y2;
+                    //================Moore=================
+                default:
+                    this.neighbors = new int[8, 2];
 
-            this.neighbors[6, 0] = this.id[0];
-            this.neighbors[6, 1] = y2;
+                    this.neighbors[0, 0] = x1;
+                    this.neighbors[0, 1] = this.id[1];
 
-            this.neighbors[7, 0] = x1;
-            this.neighbors[7, 1] = y2;
+                    this.neighbors[1, 0] = x1;
+                    this.neighbors[1, 1] = y1;
+
+                    this.neighbors[2, 0] = this.id[0];
+                    this.neighbors[2, 1] = y1;
+
+                    this.neighbors[3, 0] = x2;
+                    this.neighbors[3, 1] = y1;
+
+                    this.neighbors[4, 0] = x2;
+                    this.neighbors[4, 1] = this.id[1];
+
+                    this.neighbors[5, 0] = x2;
+                    this.neighbors[5, 1] = y2;
+
+                    this.neighbors[6, 0] = this.id[0];
+                    this.neighbors[6, 1] = y2;
+
+                    this.neighbors[7, 0] = x1;
+                    this.neighbors[7, 1] = y2;
+                    break;
+            }
+
+
+            
         }
 
         //non-periodical boundary condiditions:

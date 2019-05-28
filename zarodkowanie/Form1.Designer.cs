@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,20 +43,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.GhostWhite;
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.MaximumSize = new System.Drawing.Size(630, 630);
-            this.panel1.MinimumSize = new System.Drawing.Size(10, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(630, 630);
-            this.panel1.TabIndex = 0;
             // 
             // button1
             // 
@@ -227,12 +217,29 @@
             this.domainUpDown2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.domainUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domainUpDown2.Items.Add("Moore");
-            this.domainUpDown2.Items.Add("von Neumann");
+            this.domainUpDown2.Items.Add("vonNeumann");
+            this.domainUpDown2.Items.Add("Pentagonal.Left");
+            this.domainUpDown2.Items.Add("Pentagonal.Right");
+            this.domainUpDown2.Items.Add("Pentagonal.Upper");
+            this.domainUpDown2.Items.Add("Pentagonal.Bottom");
+            this.domainUpDown2.Items.Add("Hexagonal.Left");
+            this.domainUpDown2.Items.Add("Hexagonal.Right");
+            this.domainUpDown2.Items.Add("z promieniem");
             this.domainUpDown2.Location = new System.Drawing.Point(682, 481);
             this.domainUpDown2.Name = "domainUpDown2";
             this.domainUpDown2.ReadOnly = true;
             this.domainUpDown2.Size = new System.Drawing.Size(246, 30);
             this.domainUpDown2.TabIndex = 16;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.MaximumSize = new System.Drawing.Size(630, 630);
+            this.panel1.MinimumSize = new System.Drawing.Size(10, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(630, 630);
+            this.panel1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -268,8 +275,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -284,6 +289,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DomainUpDown domainUpDown2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

@@ -11,12 +11,14 @@ namespace zarodkowanie
         public int size;
         public int boardH;
         public Cell[,] cells;
+        public int neighborhoodType;
+        public int numOfNeigh;
 
-        public Board(int size, int boardH)
+        public Board(int size, int boardH, int neighborhoodType)
         {
             this.boardH = boardH;
             this.size = size;
-
+            this.neighborhoodType = neighborhoodType;
 
             cells = new Cell[this.size, this.boardH];
 
@@ -31,8 +33,19 @@ namespace zarodkowanie
 
             foreach (var c in cells)
             {
-                c.setNeighbors(this.size, this.boardH);
+                c.setNeighbors(this.size, this.boardH, this.neighborhoodType);
             }
+
+            if (neighborhoodType == 1)
+                numOfNeigh = 4;
+            else if (neighborhoodType == 2 || neighborhoodType == 3 || neighborhoodType == 4 || neighborhoodType == 5)
+                numOfNeigh = 5;
+            else if (neighborhoodType == 6 || neighborhoodType == 7)
+                numOfNeigh = 6;
+            else
+                numOfNeigh = 8;
+
+
         }
 
 
@@ -52,8 +65,13 @@ namespace zarodkowanie
 
         }
 
+        public void setup_manually(int x, int y, int z)
+        {
+            cells[x, y].Life = z;
+        }
 
-        public void update(int z)
+
+        public void update(int z, int numOfNeigh)
         {
             List<int[]>[] nextRound = new List<int[]>[z+1];
             for (int nR = 0; nR < z + 1; nR++)
@@ -64,7 +82,7 @@ namespace zarodkowanie
                 for (int i = 0; i < z; i++)
                     alive[i] = 0;
 
-                for (int neigh = 0; neigh < 8; neigh++)
+                for (int neigh = 0; neigh < numOfNeigh; neigh++)
                 {
                     if (this.cells[c.neighbors[neigh, 0], c.neighbors[neigh, 1]].Life >0)
                         alive[this.cells[c.neighbors[neigh, 0], c.neighbors[neigh, 1]].Life-1]++;
