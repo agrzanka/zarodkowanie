@@ -90,49 +90,49 @@ namespace zarodkowanie
 
                 //======Pentagonal Right===========
                 case 3:
-                    this.neighbors[0, 0] = neighbors[2, 0];
-                    this.neighbors[1, 0] = neighbors[3, 0];
-                    this.neighbors[2, 0] = neighbors[4, 0];
-                    this.neighbors[3, 0] = neighbors[5, 0];
-                    this.neighbors[4, 0] = neighbors[6, 0];
+                    this.neighbors[0, 0] = this.id[0];
+                    this.neighbors[1, 0] = x2;
+                    this.neighbors[2, 0] = x2;
+                    this.neighbors[3, 0] = x2;
+                    this.neighbors[4, 0] =this.id[0];
 
-                    this.neighbors[0, 1] = neighbors[2, 1];
-                    this.neighbors[1, 1] = neighbors[3, 1];
-                    this.neighbors[2, 1] = neighbors[4, 1];
-                    this.neighbors[3, 1] = neighbors[5, 1];
-                    this.neighbors[4, 1] = neighbors[6, 1];
+                    this.neighbors[0, 1] = y1;
+                    this.neighbors[1, 1] = y1;
+                    this.neighbors[2, 1] =  this.id[1];
+                    this.neighbors[3, 1] = y2;
+                    this.neighbors[4, 1] = y2;
                     break;
 
 
                 //======Pentagonal Upper==========
                 case 4:
-                    this.neighbors[0, 0] = neighbors[0, 0];
-                    this.neighbors[1, 0] = neighbors[1, 0];
-                    this.neighbors[2, 0] = neighbors[2, 0];
-                    this.neighbors[3, 0] = neighbors[3, 0];
-                    this.neighbors[4, 0] = neighbors[4, 0];
+                    this.neighbors[0, 0] = x1;
+                    this.neighbors[1, 0] = x1;
+                    this.neighbors[2, 0] =  this.id[0];
+                    this.neighbors[3, 0] = x2;
+                    this.neighbors[4, 0] = x2;
 
-                    this.neighbors[0, 1] = neighbors[0, 1];
-                    this.neighbors[1, 1] = neighbors[1, 1];
-                    this.neighbors[2, 1] = neighbors[2, 1];
-                    this.neighbors[3, 1] = neighbors[3, 1];
-                    this.neighbors[4, 1] = neighbors[4, 1];
+                    this.neighbors[0, 1] = this.id[1];
+                    this.neighbors[1, 1] = y1;
+                    this.neighbors[2, 1] = y1;
+                    this.neighbors[3, 1] = y1;
+                    this.neighbors[4, 1] = this.id[1];
                     break;
 
 
                 //========Pentagonal Bottom=====
                 case 5:
-                    this.neighbors[0, 0] = neighbors[4, 0];
-                    this.neighbors[1, 0] = neighbors[5, 0];
-                    this.neighbors[2, 0] = neighbors[6, 0];
-                    this.neighbors[3, 0] = neighbors[7, 0];
-                    this.neighbors[4, 0] = neighbors[0, 0];
+                    this.neighbors[0, 0] = x2;
+                    this.neighbors[1, 0] = x2;
+                    this.neighbors[2, 0] = this.id[0];
+                    this.neighbors[3, 0] = x1;
+                    this.neighbors[4, 0] = x1;
 
-                    this.neighbors[0, 1] = neighbors[4, 1];
-                    this.neighbors[1, 1] = neighbors[5, 1];
-                    this.neighbors[2, 1] = neighbors[6, 1];
-                    this.neighbors[3, 1] = neighbors[7, 1];
-                    this.neighbors[4, 1] = neighbors[0, 1];
+                    this.neighbors[0, 1] = this.id[1];
+                    this.neighbors[1, 1] = y2;
+                    this.neighbors[2, 1] = y2;
+                    this.neighbors[3, 1] = y2;
+                    this.neighbors[4, 1] =  this.id[1];
 
                     break;
 
