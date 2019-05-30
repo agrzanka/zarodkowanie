@@ -224,7 +224,8 @@
             this.domainUpDown2.Items.Add("Pentagonal.Bottom");
             this.domainUpDown2.Items.Add("Hexagonal.Left");
             this.domainUpDown2.Items.Add("Hexagonal.Right");
-            this.domainUpDown2.Items.Add("z promieniem");
+            this.domainUpDown2.Items.Add("Pentagonal.Random");
+            this.domainUpDown2.Items.Add("Radial");
             this.domainUpDown2.Location = new System.Drawing.Point(682, 481);
             this.domainUpDown2.Name = "domainUpDown2";
             this.domainUpDown2.ReadOnly = true;

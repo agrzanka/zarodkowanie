@@ -80,6 +80,11 @@ namespace zarodkowanie
             int size = (int)numericUpDown1.Value;
             int bH = (int)numericUpDown2.Value;
             int nh=domainUpDown2.SelectedIndex;
+            if(nh==8)
+            {
+                Random r = new Random();
+                nh = r.Next(2, 5);
+            }
 
             zarodki = (int)numericUpDown3.Value;
 
