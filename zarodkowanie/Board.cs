@@ -13,7 +13,6 @@ namespace zarodkowanie
         public Cell[,] cells;
         public int neighborhoodType;
         public int boundaryConditionType;
-        //public int numOfNeigh;
 
         public Board(int size, int boardH, int neighborhoodType, int bcType)
         {
@@ -37,20 +36,7 @@ namespace zarodkowanie
             {
                 c.setNeighbors(this.size, this.boardH, this.neighborhoodType, this.boundaryConditionType);
             }
-
-           // if (neighborhoodType == 1)
-           //     numOfNeigh = 4;
-          //  else if (neighborhoodType == 2 || neighborhoodType == 3 || neighborhoodType == 4 || neighborhoodType == 5)
-            //    numOfNeigh = 5;
-           // else if (neighborhoodType == 6 || neighborhoodType == 7)
-           //     numOfNeigh = 6;
-          //  else
-          //      numOfNeigh = 8;
-
-
         }
-
-
 
         public void setup_randomly(int z)
         {
@@ -64,9 +50,7 @@ namespace zarodkowanie
 
                 cells[xx, yy].Life = i;
             }
-
         }
-
 
         public void setup_homogeneus(int z, int h, int w)
         {
@@ -94,8 +78,6 @@ namespace zarodkowanie
                     cells[i * sw, j * sh].Life = (i + zw * (j - 1));
                 }
             }
-
-
         }
 
         public void setup_manually(int x, int y, int z)

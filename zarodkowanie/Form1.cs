@@ -11,29 +11,6 @@ using System.Threading;
 
 namespace zarodkowanie
 {
-
-  /*  enum Neighborhood
-    {
-        Moore=0,
-        vonNeumann=1,
-        Pentagonal,
-        Hexagonal
-    }
-
-    enum Pentagonal
-    {
-        Left=4,
-        Right =5,
-        Upper=6,
-        Bottom=7
-    }
-
-    enum Hexagonal
-    {
-        Left=10,
-        Right=11
-    }*/
-
     public partial class Form1 : Form
     {
         SolidBrush[] brush = new SolidBrush[17];
@@ -108,19 +85,15 @@ namespace zarodkowanie
 
             panel1.Refresh();
             board = new Board(size, bH, nh, bc);
-
-           // int numOfNeigh = board.numOfNeigh;
+            
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
 
             Pen pen = new Pen(Color.MediumVioletRed, 1f);
-            //SolidBrush brush = new SolidBrush(Color.MediumVioletRed);
             Graphics graphics = panel1.CreateGraphics();
 
             zarodkowanie.startBoard.setup_randomly(zarodki);
             zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
-
-            //for (int i = 1; i < 5; i++)
 
             int zeroes = 0;
             foreach (var c in board.cells)
@@ -133,7 +106,7 @@ namespace zarodkowanie
             {
 
                 Thread.Sleep(300);
-                //panel1.Refresh();
+                
                 zarodkowanie.startBoard.update(zarodki);
                 zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
 
@@ -159,39 +132,13 @@ namespace zarodkowanie
                         return;
                     if (me.X < 0 || me.Y < 0)
                         return;
-                    // if (zarodkowanie.startBoard.cells[me.X / cellSize, me.Y / cellSize].Life > 0)
-                    //     return;
+                    
                     zarodkowanie.startBoard.setup_manually(me.X / cellSize, me.Y / cellSize, z);
                     z--;
                     if (z <= 0)
                         manualMode = false;
                 }
             }
-
-        /* private void panel1_Click(object sender, EventArgs e)
-         {
-             if (manualMode == true)
-             {
-
-
-                 MouseEventArgs me = (MouseEventArgs)e;
-                 if (me.Button == MouseButtons.Left)
-                 {
-                     if (me.X >= panel1.Width || me.Y >= panel1.Height)
-                         return;
-                     if (me.X < 0 || me.Y < 0)
-                         return;
-                    // if (zarodkowanie.startBoard.cells[me.X / cellSize, me.Y / cellSize].Life > 0)
-                    //     return;
-                     zarodkowanie.startBoard.setup_manually(me.X / cellSize, me.Y / cellSize, z);
-                     z--;
-                     if (z <= 0)
-                         manualMode = false;
-                 }
-             }
-         }*/
-
-         
          }
     
 
@@ -247,7 +194,6 @@ namespace zarodkowanie
             {
 
                 Thread.Sleep(300);
-                //panel1.Refresh();
                 zarodkowanie.startBoard.update(zarodki);
                 zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
 
@@ -285,18 +231,15 @@ namespace zarodkowanie
             panel1.Refresh();
             board = new Board(size, bH, nh, bc);
 
-           // int numOfNeigh = board.numOfNeigh;
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
 
             Pen pen = new Pen(Color.MediumVioletRed, 1f);
-            //SolidBrush brush = new SolidBrush(Color.MediumVioletRed);
             Graphics graphics = panel1.CreateGraphics();
 
             zarodkowanie.startBoard.setup_homogeneus(zarodki, bH,size);
             zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
 
-            //for (int i = 1; i < 5; i++)
             numericUpDown3.Value = zarodki;
 
             int zeroes = 0;
@@ -310,7 +253,7 @@ namespace zarodkowanie
             {
 
                 Thread.Sleep(300);
-                //panel1.Refresh();
+           
                 zarodkowanie.startBoard.update(zarodki);
                 zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
 
