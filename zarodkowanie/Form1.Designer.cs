@@ -44,9 +44,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -58,6 +62,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "jednorodne";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -89,6 +94,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "wybór manualny";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // numericUpDown1
             // 
@@ -130,11 +136,6 @@
             // 
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown3.Location = new System.Drawing.Point(637, 215);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
             this.numericUpDown3.Minimum = new decimal(new int[] {
             1,
             0,
@@ -235,6 +236,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.MaximumSize = new System.Drawing.Size(630, 630);
             this.panel1.MinimumSize = new System.Drawing.Size(10, 10);
@@ -242,11 +244,32 @@
             this.panel1.Size = new System.Drawing.Size(630, 630);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.MaximumSize = new System.Drawing.Size(630, 630);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(0, 0);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(894, 607);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 17;
+            this.button5.Text = "start";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.domainUpDown2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
@@ -270,6 +293,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,6 +316,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DomainUpDown domainUpDown2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button5;
     }
 }
 

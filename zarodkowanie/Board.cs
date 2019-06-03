@@ -12,13 +12,15 @@ namespace zarodkowanie
         public int boardH;
         public Cell[,] cells;
         public int neighborhoodType;
-        public int numOfNeigh;
+        public int boundaryConditionType;
+        //public int numOfNeigh;
 
-        public Board(int size, int boardH, int neighborhoodType)
+        public Board(int size, int boardH, int neighborhoodType, int bcType)
         {
             this.boardH = boardH;
             this.size = size;
             this.neighborhoodType = neighborhoodType;
+            this.boundaryConditionType = bcType;
 
             cells = new Cell[this.size, this.boardH];
 
@@ -33,17 +35,17 @@ namespace zarodkowanie
 
             foreach (var c in cells)
             {
-                c.setNeighbors(this.size, this.boardH, this.neighborhoodType);
+                c.setNeighbors(this.size, this.boardH, this.neighborhoodType, this.boundaryConditionType);
             }
 
-            if (neighborhoodType == 1)
-                numOfNeigh = 4;
-            else if (neighborhoodType == 2 || neighborhoodType == 3 || neighborhoodType == 4 || neighborhoodType == 5)
-                numOfNeigh = 5;
-            else if (neighborhoodType == 6 || neighborhoodType == 7)
-                numOfNeigh = 6;
-            else
-                numOfNeigh = 8;
+           // if (neighborhoodType == 1)
+           //     numOfNeigh = 4;
+          //  else if (neighborhoodType == 2 || neighborhoodType == 3 || neighborhoodType == 4 || neighborhoodType == 5)
+            //    numOfNeigh = 5;
+           // else if (neighborhoodType == 6 || neighborhoodType == 7)
+           //     numOfNeigh = 6;
+          //  else
+          //      numOfNeigh = 8;
 
 
         }
@@ -57,11 +59,42 @@ namespace zarodkowanie
 
             for (int i = 1; i < z+1; i++)
             {
-                int xx = x.Next(0, size - 1);
-                int yy = y.Next(0, boardH - 1);
+                int xx = x.Next(1, size - 1);
+                int yy = y.Next(1, boardH - 1);
 
                 cells[xx, yy].Life = i;
             }
+
+        }
+
+
+        public void setup_homogeneus(int z, int h, int w)
+        {
+            int zh;
+            int zw;
+
+            if (w>h)
+            {
+                zh = (int)Math.Sqrt(z);
+                zw = z / zh;
+            }
+            else
+            {
+                zw = (int)Math.Sqrt(z);
+                zh = z / zw;
+            }
+
+            int sw = (w - zw) / (zw + 1);
+            int sh = (h - zh) / (zh + 1);
+
+            for(int j=1;j<zh;j++)
+            {
+                for(int i=1;i<zw;i++)
+                {
+                    cells[i * sw, j * sh].Life = (i + zw * (j - 1));
+                }
+            }
+
 
         }
 
@@ -71,7 +104,7 @@ namespace zarodkowanie
         }
 
 
-        public void update(int z, int numOfNeigh)
+        public void update(int z)
         {
             List<int[]>[] nextRound = new List<int[]>[z+1];
             for (int nR = 0; nR < z + 1; nR++)
@@ -82,10 +115,10 @@ namespace zarodkowanie
                 for (int i = 0; i < z; i++)
                     alive[i] = 0;
 
-                for (int neigh = 0; neigh < numOfNeigh; neigh++)
+                for (int neigh = 0; neigh < c.numOfNeigh; neigh++)
                 {
-                    if (this.cells[c.neighbors[neigh, 0], c.neighbors[neigh, 1]].Life >0)
-                        alive[this.cells[c.neighbors[neigh, 0], c.neighbors[neigh, 1]].Life-1]++;
+                    if (this.cells[c.neighbors[neigh] [0], c.neighbors[neigh][ 1]].Life >0)
+                        alive[this.cells[c.neighbors[neigh][ 0], c.neighbors[neigh][1]].Life-1]++;
                 }
 
                 int colour=0;

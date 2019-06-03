@@ -38,12 +38,21 @@ namespace zarodkowanie
     {
         SolidBrush[] brush = new SolidBrush[17];
         int maxSize;
-        bool manualMode = true;
+        bool manualMode = false;
         Board board;
         Zarodkowanie zarodkowanie;
         int zarodki;
         int z;
         int cellSize;
+
+        int nh;
+        int bc;
+
+        int width;
+        int height;
+
+        int size;
+        int bH;
 
 
         public Form1()
@@ -77,9 +86,11 @@ namespace zarodkowanie
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int size = (int)numericUpDown1.Value;
-            int bH = (int)numericUpDown2.Value;
-            int nh=domainUpDown2.SelectedIndex;
+            size = (int)numericUpDown1.Value;
+            bH = (int)numericUpDown2.Value;
+            nh=domainUpDown2.SelectedIndex;
+            bc = domainUpDown1.SelectedIndex;
+
             if(nh==8)
             {
                 Random r = new Random();
@@ -96,9 +107,9 @@ namespace zarodkowanie
             panel1.Height = height;
 
             panel1.Refresh();
-            board = new Board(size, bH, nh);
+            board = new Board(size, bH, nh, bc);
 
-            int numOfNeigh = board.numOfNeigh;
+           // int numOfNeigh = board.numOfNeigh;
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
 
@@ -123,7 +134,7 @@ namespace zarodkowanie
 
                 Thread.Sleep(300);
                 //panel1.Refresh();
-                zarodkowanie.startBoard.update(zarodki, numOfNeigh);
+                zarodkowanie.startBoard.update(zarodki);
                 zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
 
                 zeroes = 0;
@@ -135,7 +146,7 @@ namespace zarodkowanie
             }
         }
 
-       /* private void panel1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (manualMode == true)
             {
@@ -148,40 +159,80 @@ namespace zarodkowanie
                         return;
                     if (me.X < 0 || me.Y < 0)
                         return;
-                   // if (zarodkowanie.startBoard.cells[me.X / cellSize, me.Y / cellSize].Life > 0)
-                   //     return;
+                    // if (zarodkowanie.startBoard.cells[me.X / cellSize, me.Y / cellSize].Life > 0)
+                    //     return;
                     zarodkowanie.startBoard.setup_manually(me.X / cellSize, me.Y / cellSize, z);
                     z--;
                     if (z <= 0)
                         manualMode = false;
                 }
             }
-        }*/
 
-       /* private void button4_Click(object sender, EventArgs e)
+        /* private void panel1_Click(object sender, EventArgs e)
+         {
+             if (manualMode == true)
+             {
+
+
+                 MouseEventArgs me = (MouseEventArgs)e;
+                 if (me.Button == MouseButtons.Left)
+                 {
+                     if (me.X >= panel1.Width || me.Y >= panel1.Height)
+                         return;
+                     if (me.X < 0 || me.Y < 0)
+                         return;
+                    // if (zarodkowanie.startBoard.cells[me.X / cellSize, me.Y / cellSize].Life > 0)
+                    //     return;
+                     zarodkowanie.startBoard.setup_manually(me.X / cellSize, me.Y / cellSize, z);
+                     z--;
+                     if (z <= 0)
+                         manualMode = false;
+                 }
+             }
+         }*/
+
+         
+         }
+    
+
+        private void button4_Click(object sender, EventArgs e)
         {
-            int size = (int)numericUpDown1.Value;
-            int bH = (int)numericUpDown2.Value;
+            nh = domainUpDown2.SelectedIndex;
+            bc = domainUpDown1.SelectedIndex;
+
+            size = (int)numericUpDown1.Value;
+            bH = (int)numericUpDown2.Value;
             zarodki = (int)numericUpDown3.Value;
+
             z = zarodki;
             cellSize = (size > bH) ? maxSize / size : maxSize / bH;
 
-            int width = cellSize * size;
-            int height = cellSize * bH;
+            width = cellSize * size;
+            height = cellSize * bH;
             panel1.Width = width;
             panel1.Height = height;
 
-            panel1.Refresh();
-            board = new Board(size, bH);
-            zarodkowanie = new Zarodkowanie(board, bH, cellSize);
+            pictureBox1.Height = height;
+            pictureBox1.Width = width;
 
+
+            manualMode = true;
+
+            panel1.Refresh();
+            board = new Board(size, bH, nh,bc);
+            zarodkowanie = new Zarodkowanie(board, bH, cellSize);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            manualMode = false;
             Pen pen = new Pen(Color.MediumVioletRed, 1f);
             //SolidBrush brush = new SolidBrush(Color.MediumVioletRed);
             Graphics graphics = panel1.CreateGraphics();
 
-            while (z > 0)
-                manualMode = true;
-           
+            // while (z > 0)
+            //     manualMode = true;
+
 
             zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
 
@@ -207,7 +258,69 @@ namespace zarodkowanie
                         zeroes++;
                 }
             }
+        }
 
-        }*/
+        private void button1_Click(object sender, EventArgs e)
+        {
+            size = (int)numericUpDown1.Value;
+            bH = (int)numericUpDown2.Value;
+            nh = domainUpDown2.SelectedIndex;
+            bc = domainUpDown1.SelectedIndex;
+
+            if (nh == 8)
+            {
+                Random r = new Random();
+                nh = r.Next(2, 5);
+            }
+
+            zarodki = (int)numericUpDown3.Value;
+
+            cellSize = (size > bH) ? maxSize / size : maxSize / bH;
+
+            int width = cellSize * size;
+            int height = cellSize * bH;
+            panel1.Width = width;
+            panel1.Height = height;
+
+            panel1.Refresh();
+            board = new Board(size, bH, nh, bc);
+
+           // int numOfNeigh = board.numOfNeigh;
+
+            zarodkowanie = new Zarodkowanie(board, bH, cellSize);
+
+            Pen pen = new Pen(Color.MediumVioletRed, 1f);
+            //SolidBrush brush = new SolidBrush(Color.MediumVioletRed);
+            Graphics graphics = panel1.CreateGraphics();
+
+            zarodkowanie.startBoard.setup_homogeneus(zarodki, bH,size);
+            zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
+
+            //for (int i = 1; i < 5; i++)
+            numericUpDown3.Value = zarodki;
+
+            int zeroes = 0;
+            foreach (var c in board.cells)
+            {
+                if (c.Life == 0)
+                    zeroes++;
+            }
+
+            while (zeroes > 0)
+            {
+
+                Thread.Sleep(300);
+                //panel1.Refresh();
+                zarodkowanie.startBoard.update(zarodki);
+                zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
+
+                zeroes = 0;
+                foreach (var c in board.cells)
+                {
+                    if (c.Life == 0)
+                        zeroes++;
+                }
+            }
+        }
     }
-}
+    }
