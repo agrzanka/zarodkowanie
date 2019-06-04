@@ -58,7 +58,7 @@ namespace zarodkowanie
         }
 
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) //lrandom
         {
             size = (int)numericUpDown1.Value;
             bH = (int)numericUpDown2.Value;
@@ -198,8 +198,7 @@ namespace zarodkowanie
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
 
-            Pen pen = new Pen(Color.MediumVioletRed, 1f);
-            Graphics graphics = pictureBox1.CreateGraphics();
+            graphics = pictureBox1.CreateGraphics();
 
             zarodkowanie.startBoard.setup_homogeneus(zarodki, bH,size);
             zarodkowanie.drawResult(width, height, graphics, brush, zarodki);

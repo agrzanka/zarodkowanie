@@ -54,7 +54,37 @@ namespace zarodkowanie
 
         public void setup_homogeneus(int z, int h, int w)
         {
-            int zh;
+            double scale = w / h;
+            double asqrt = z * scale;
+
+            int a = (int)Math.Sqrt(asqrt);
+            if (a * a < asqrt)
+                a = a + 1;
+            int spaceX = (w - a) / (a + 1);
+            a = w / (spaceX + 1);
+            if ((spaceX * a + a) >= w - 1)
+                a = a - 1; //final a
+
+            int b = z / a;
+            if (b * a < z)
+                b = b + 1; //final b
+            int spaceY = (h - b) / (b + 1);
+
+            int counter = 1;
+
+            while(counter<z+1)
+            {
+                for (int j=0;j<b;j++)
+                    for (int i=0;i<a;i++)
+                    {
+                        cells[spaceX * (i + 1) + i, spaceY * (j + 1) + j].Life=counter;
+                        counter++;
+                    }
+            }
+
+
+
+            /*int zh;
             int zw;
 
             if (w>h)
@@ -77,7 +107,7 @@ namespace zarodkowanie
                 {
                     cells[i * sw, j * sh].Life = (i + zw * (j - 1));
                 }
-            }
+            }*/
         }
 
         public void setup_manually(int x, int y, int z)
