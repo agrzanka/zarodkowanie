@@ -30,6 +30,7 @@ namespace zarodkowanie
         {
             List<int> periodical = new List<int>();
 
+            //setting coordinates for every possible neighbor
             int x1, x2, y1, y2;
 
             if (this.id[0] - 1 < 0)

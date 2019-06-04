@@ -53,7 +53,7 @@ namespace zarodkowanie
             brush[15] = new SolidBrush(Color.ForestGreen);
             brush[16] = new SolidBrush(Color.Firebrick);
 
-            maxSize = (panel1.Width < panel1.Height) ? panel1.Width : panel1.Height;
+            maxSize = (pictureBox1.Width < pictureBox1.Height) ? pictureBox1.Width : pictureBox1.Height;
         }
 
         private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
@@ -80,17 +80,17 @@ namespace zarodkowanie
 
             int width = cellSize * size;
             int height = cellSize * bH;
-            panel1.Width = width;
-            panel1.Height = height;
+            pictureBox1.Width = width;
+            pictureBox1.Height = height;
 
-            panel1.Refresh();
+            pictureBox1.Refresh();
             board = new Board(size, bH, nh, bc);
             
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
 
             Pen pen = new Pen(Color.MediumVioletRed, 1f);
-            Graphics graphics = panel1.CreateGraphics();
+            Graphics graphics = pictureBox1.CreateGraphics();
 
             zarodkowanie.startBoard.setup_randomly(zarodki);
             zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
@@ -128,7 +128,7 @@ namespace zarodkowanie
                 MouseEventArgs me = (MouseEventArgs)e;
                 if (me.Button == MouseButtons.Left)
                 {
-                    if (me.X >= panel1.Width || me.Y >= panel1.Height)
+                    if (me.X >= pictureBox1.Width || me.Y >= pictureBox1.Height)
                         return;
                     if (me.X < 0 || me.Y < 0)
                         return;
@@ -156,8 +156,8 @@ namespace zarodkowanie
 
             width = cellSize * size;
             height = cellSize * bH;
-            panel1.Width = width;
-            panel1.Height = height;
+            pictureBox1.Width = width;
+            pictureBox1.Height = height;
 
             pictureBox1.Height = height;
             pictureBox1.Width = width;
@@ -165,7 +165,7 @@ namespace zarodkowanie
 
             manualMode = true;
 
-            panel1.Refresh();
+            pictureBox1.Refresh();
             board = new Board(size, bH, nh,bc);
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
         }
@@ -175,7 +175,7 @@ namespace zarodkowanie
             manualMode = false;
             Pen pen = new Pen(Color.MediumVioletRed, 1f);
             //SolidBrush brush = new SolidBrush(Color.MediumVioletRed);
-            Graphics graphics = panel1.CreateGraphics();
+            Graphics graphics = pictureBox1.CreateGraphics();
 
             // while (z > 0)
             //     manualMode = true;
@@ -225,17 +225,17 @@ namespace zarodkowanie
 
             int width = cellSize * size;
             int height = cellSize * bH;
-            panel1.Width = width;
-            panel1.Height = height;
+            pictureBox1.Width = width;
+            pictureBox1.Height = height;
 
-            panel1.Refresh();
+            pictureBox1.Refresh();
             board = new Board(size, bH, nh, bc);
 
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
 
             Pen pen = new Pen(Color.MediumVioletRed, 1f);
-            Graphics graphics = panel1.CreateGraphics();
+            Graphics graphics = pictureBox1.CreateGraphics();
 
             zarodkowanie.startBoard.setup_homogeneus(zarodki, bH,size);
             zarodkowanie.drawResult(width, height, graphics, pen, brush, zarodki);
