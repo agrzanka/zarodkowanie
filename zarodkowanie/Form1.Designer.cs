@@ -159,7 +159,7 @@
             this.domainUpDown1.ReadOnly = true;
             this.domainUpDown1.Size = new System.Drawing.Size(246, 30);
             this.domainUpDown1.TabIndex = 9;
-            this.domainUpDown1.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged);
+
             // 
             // label1
             // 
@@ -251,6 +251,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(630, 630);
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // Form1
             // 

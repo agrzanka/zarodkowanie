@@ -22,7 +22,7 @@ namespace zarodkowanie
             this.cellSize = cellSize;
         }
 
-        public void drawResult(int width, int height, Graphics graphics, Pen pen, SolidBrush[] brush, int zarodki)
+        public void drawResult(int width, int height, Graphics graphics, SolidBrush[] brush, int zarodki)
         {
             for (int i = 0; i < boardH; i++)
                 for (int s = 0; s < startBoard.size; s++)
