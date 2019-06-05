@@ -66,7 +66,7 @@ namespace zarodkowanie
         }
 
 
-        private void button3_Click(object sender, EventArgs e) //lrandom
+        private void button3_Click(object sender, EventArgs e) //random
         {
             size = (int)numericUpDown1.Value;
             bH = (int)numericUpDown2.Value;
@@ -80,6 +80,12 @@ namespace zarodkowanie
             }
 
             zarodki = (int)numericUpDown3.Value;
+            int maxZ = size * bH;
+            if (zarodki > maxZ)
+            {
+                zarodki = maxZ;
+                numericUpDown3.Value = maxZ;
+            }
 
             cellSize = (size > bH) ? maxSize / size : maxSize / bH;
 
@@ -131,6 +137,12 @@ namespace zarodkowanie
             size = (int)numericUpDown1.Value;
             bH = (int)numericUpDown2.Value;
             zarodki = (int)numericUpDown3.Value;
+            int maxZ = size * bH;
+            if (zarodki > maxZ)
+            {
+                zarodki = maxZ;
+                numericUpDown3.Value = maxZ;
+            }
 
             z = 1;
             cellSize = (size > bH) ? maxSize / size : maxSize / bH;
@@ -178,7 +190,7 @@ namespace zarodkowanie
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //jednorodnie
         {
             size = (int)numericUpDown1.Value;
             bH = (int)numericUpDown2.Value;
@@ -255,8 +267,11 @@ namespace zarodkowanie
                     if (me.X < 0 || me.Y < 0)
                         return;
 
-                    zarodkowanie.startBoard.setup_manually(me.X / cellSize, me.Y / cellSize, z);
-                    z++;
+                    if (zarodkowanie.startBoard.cells[me.X / cellSize, me.Y / cellSize].Life < 1)
+                    {
+                        zarodkowanie.startBoard.setup_manually(me.X / cellSize, me.Y / cellSize, z);
+                        z++;
+                    }
                     if (z >zarodki)
                         manualMode = false;
 

@@ -96,33 +96,6 @@ namespace zarodkowanie
                             break;
                     }
             } while (counter < z);
-
-
-
-            /*int zh;
-            int zw;
-
-            if (w>h)
-            {
-                zh = (int)Math.Sqrt(z);
-                zw = z / zh;
-            }
-            else
-            {
-                zw = (int)Math.Sqrt(z);
-                zh = z / zw;
-            }
-
-            int sw = (w - zw) / (zw + 1);
-            int sh = (h - zh) / (zh + 1);
-
-            for(int j=1;j<zh;j++)
-            {
-                for(int i=1;i<zw;i++)
-                {
-                    cells[i * sw, j * sh].Life = (i + zw * (j - 1));
-                }
-            }*/
         }
 
         public void setup_manually(int x, int y, int z)
