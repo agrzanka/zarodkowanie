@@ -16,7 +16,7 @@ namespace zarodkowanie
 
         public int zarodki=0;
 
-        public Board(int size, int boardH, int neighborhoodType, int bcType)
+        public Board(int size, int boardH, int neighborhoodType, int bcType, int cellSize)
         {
             this.boardH = boardH;
             this.size = size;
@@ -32,7 +32,7 @@ namespace zarodkowanie
                 for (int s = 0; s < boardH; s++)
                 {
                     int[] id = { i, s };
-                    this.cells[i, s] = new Cell(id, 0, size, idd);
+                    this.cells[i, s] = new Cell(id, 0, size, idd, cellSize);
                     idd++;
                 }
             }

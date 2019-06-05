@@ -95,7 +95,7 @@ namespace zarodkowanie
             pictureBox1.Height = height;
 
             pictureBox1.Refresh();
-            board = new Board(size, bH, nh, bc);
+            board = new Board(size, bH, nh, bc, cellSize);
             
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
@@ -155,7 +155,7 @@ namespace zarodkowanie
 
             pictureBox1.Refresh();
 
-            board = new Board(size, bH, nh,bc);
+            board = new Board(size, bH, nh,bc, cellSize);
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
             graphics = pictureBox1.CreateGraphics();
 
@@ -219,7 +219,7 @@ namespace zarodkowanie
             pictureBox1.Height = height;
 
             pictureBox1.Refresh();
-            board = new Board(size, bH, nh, bc);
+            board = new Board(size, bH, nh, bc, cellSize);
 
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
@@ -303,7 +303,7 @@ namespace zarodkowanie
             pictureBox1.Height = height;
 
             pictureBox1.Refresh();
-            board = new Board(size, bH, nh, bc);
+            board = new Board(size, bH, nh, bc, cellSize);
 
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);

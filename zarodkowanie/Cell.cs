@@ -15,6 +15,12 @@ namespace zarodkowanie
         public int numOfNeigh;
         public int[][] baseNeighbors;
 
+        public int cellSize;
+
+        //global barycentre
+        int bx;
+        int by;
+
         public Cell()
         {
             this.Life = 0;
@@ -22,11 +28,20 @@ namespace zarodkowanie
             this.id[1] = 0;
         }
 
-        public Cell(int[] id, int life, int boardSize, int idd)
+        public Cell(int[] id, int life, int boardSize, int idd, int cellSize)
         {
             this.id = id;
             this.Life = life;
             this.idd = idd;
+            this.cellSize = cellSize;
+
+            Random random = new Random();
+            double localBX = random.NextDouble();
+            double localBY = random.NextDouble();
+
+            this.bx = ((int)(localBX * cellSize)) + cellSize * id[0];
+            this.by = ((int)(localBY * cellSize)) + cellSize * id[1];
+
         }
 
         public void setNeighbors(int boardSize, int boardH, int nType, int bcType)

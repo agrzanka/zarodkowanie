@@ -45,10 +45,13 @@
             this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
             this.button5 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -155,7 +158,7 @@
             this.domainUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.domainUpDown1.Items.Add("periodic");
             this.domainUpDown1.Items.Add("nonperiodic");
-            this.domainUpDown1.Location = new System.Drawing.Point(682, 341);
+            this.domainUpDown1.Location = new System.Drawing.Point(682, 309);
             this.domainUpDown1.Name = "domainUpDown1";
             this.domainUpDown1.ReadOnly = true;
             this.domainUpDown1.Size = new System.Drawing.Size(246, 30);
@@ -195,7 +198,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(720, 313);
+            this.label5.Location = new System.Drawing.Point(720, 281);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(169, 25);
             this.label5.TabIndex = 14;
@@ -205,7 +208,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(720, 430);
+            this.label4.Location = new System.Drawing.Point(720, 358);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(140, 25);
             this.label4.TabIndex = 15;
@@ -224,8 +227,8 @@
             this.domainUpDown2.Items.Add("Hexagonal.Left");
             this.domainUpDown2.Items.Add("Hexagonal.Right");
             this.domainUpDown2.Items.Add("Pentagonal.Random");
-            this.domainUpDown2.Items.Add("Radial");
-            this.domainUpDown2.Location = new System.Drawing.Point(682, 481);
+            this.domainUpDown2.Items.Add("Radial(barycentre)");
+            this.domainUpDown2.Location = new System.Drawing.Point(682, 386);
             this.domainUpDown2.Name = "domainUpDown2";
             this.domainUpDown2.ReadOnly = true;
             this.domainUpDown2.Size = new System.Drawing.Size(246, 30);
@@ -253,11 +256,45 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.BackColor = System.Drawing.SystemColors.Control;
+            this.numericUpDown4.Location = new System.Drawing.Point(872, 420);
+            this.numericUpDown4.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(56, 22);
+            this.numericUpDown4.TabIndex = 19;
+            this.numericUpDown4.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(682, 422);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(184, 17);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "promień-sąsiedztwo z prom.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numericUpDown4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.domainUpDown2);
@@ -283,6 +320,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +343,8 @@
         private System.Windows.Forms.DomainUpDown domainUpDown2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.Label label6;
     }
 }
 
