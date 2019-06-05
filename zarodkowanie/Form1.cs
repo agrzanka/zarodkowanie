@@ -47,7 +47,7 @@ namespace zarodkowanie
             brush[8] = new SolidBrush(Color.DarkGoldenrod);
             brush[9] = new SolidBrush(Color.DodgerBlue);
             brush[10] = new SolidBrush(Color.Moccasin);
-            brush[11] = new SolidBrush(Color.Ivory);
+            brush[11] = new SolidBrush(Color.Tan);
             brush[12] = new SolidBrush(Color.HotPink);
             brush[13] = new SolidBrush(Color.Gainsboro);
             brush[14] = new SolidBrush(Color.Fuchsia);
@@ -184,8 +184,14 @@ namespace zarodkowanie
             }
 
             zarodki = (int)numericUpDown3.Value;
+            int maxZ = (int)Math.Sqrt(size * bH);
+            if (zarodki > maxZ)
+            {
+                zarodki = maxZ;
+                numericUpDown3.Value = maxZ;
+            }
 
-            cellSize = (size > bH) ? maxSize / size : maxSize / bH;
+                cellSize = (size > bH) ? maxSize / size : maxSize / bH;
 
             int width = cellSize * size;
             int height = cellSize * bH;

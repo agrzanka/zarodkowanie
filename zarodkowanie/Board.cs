@@ -54,16 +54,18 @@ namespace zarodkowanie
 
         public void setup_homogeneus(int z, int h, int w)
         {
-            double scale = w / h;
+            double scale = (double)w / (double)h;
             double asqrt = z * scale;
 
             int a = (int)Math.Sqrt(asqrt);
-            if (a * a < asqrt)
+            if ((a * a < asqrt))
                 a = a + 1;
             int spaceX = (w - a) / (a + 1);
             a = w / (spaceX + 1);
-            if ((spaceX * a + a) >= w - 1)
+            if (((spaceX * a + a) >= w - 1))
                 a = a - 1; //final a
+            if (a < 1)
+                a = 1;
 
             int b = z / a;
             if (b * a < z)
@@ -72,15 +74,17 @@ namespace zarodkowanie
 
             int counter = 1;
 
-            while(counter<z+1)
+            do
             {
-                for (int j=0;j<b;j++)
-                    for (int i=0;i<a;i++)
+                for (int j = 0; j < b; j++)
+                    for (int i = 0; i < a; i++)
                     {
-                        cells[spaceX * (i + 1) + i, spaceY * (j + 1) + j].Life=counter;
+                        cells[spaceX * (i + 1) + i, spaceY * (j + 1) + j].Life = counter;
                         counter++;
+                        if (counter > z)
+                            break;
                     }
-            }
+            } while (counter < z);
 
 
 
