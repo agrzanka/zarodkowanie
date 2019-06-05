@@ -10,6 +10,7 @@ namespace zarodkowanie
     {
         public int Life { get; set; }
         public int[] id = new int[2];
+        public int idd;
         public List<int[]> neighbors = new List<int[]>();
         public int numOfNeigh;
 
@@ -20,10 +21,11 @@ namespace zarodkowanie
             this.id[1] = 0;
         }
 
-        public Cell(int[] id, int life, int boardSize)
+        public Cell(int[] id, int life, int boardSize, int idd)
         {
             this.id = id;
             this.Life = life;
+            this.idd = idd;
         }
 
         public void setNeighbors(int boardSize, int boardH, int nType, int bcType)

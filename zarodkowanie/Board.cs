@@ -23,12 +23,15 @@ namespace zarodkowanie
 
             cells = new Cell[this.size, this.boardH];
 
+            int idd = 0;
+
             for (int i = 0; i < size; i++)
             {
                 for (int s = 0; s < boardH; s++)
                 {
-                    int[] idd = { i, s };
-                    this.cells[i, s] = new Cell(idd, 0, size);
+                    int[] id = { i, s };
+                    this.cells[i, s] = new Cell(id, 0, size, idd);
+                    idd++;
                 }
             }
 
@@ -40,15 +43,23 @@ namespace zarodkowanie
 
         public void setup_randomly(int z)
         {
-            Random x = new Random();
-            Random y = new Random();
+            Random r = new Random();
+
+            List<int> idds = new List<int>();
 
             for (int i = 1; i < z+1; i++)
             {
-                int xx = x.Next(1, size - 1);
-                int yy = y.Next(1, boardH - 1);
+                int rr = r.Next(0,(boardH*size));
+                if (idds.Contains(rr))
+                    i--;
+                else
+                {
+                    idds.Add(rr);
+                    int x = rr % size;
+                    int y = rr / size;
 
-                cells[xx, yy].Life = i;
+                    cells[x, y].Life = i;
+                }
             }
         }
 

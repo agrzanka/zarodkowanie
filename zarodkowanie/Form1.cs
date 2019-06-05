@@ -13,7 +13,7 @@ namespace zarodkowanie
 {
     public partial class Form1 : Form
     {
-        SolidBrush[] brush = new SolidBrush[17];
+        SolidBrush[] brush = new SolidBrush[25];
         int maxSize;
         bool manualMode = false;
         Graphics graphics;
@@ -46,13 +46,21 @@ namespace zarodkowanie
             brush[7] = new SolidBrush(Color.CornflowerBlue);
             brush[8] = new SolidBrush(Color.DarkGoldenrod);
             brush[9] = new SolidBrush(Color.DodgerBlue);
-            brush[10] = new SolidBrush(Color.Moccasin);
+            brush[10] = new SolidBrush(Color.Yellow);
             brush[11] = new SolidBrush(Color.Tan);
             brush[12] = new SolidBrush(Color.HotPink);
             brush[13] = new SolidBrush(Color.Gainsboro);
             brush[14] = new SolidBrush(Color.Fuchsia);
             brush[15] = new SolidBrush(Color.ForestGreen);
             brush[16] = new SolidBrush(Color.Firebrick);
+            brush[17] = new SolidBrush(Color.Violet);
+            brush[18] = new SolidBrush(Color.Thistle);
+            brush[19] = new SolidBrush(Color.Teal);
+            brush[20] = new SolidBrush(Color.SaddleBrown);
+            brush[21] = new SolidBrush(Color.SpringGreen);
+            brush[22] = new SolidBrush(Color.Silver);
+            brush[23] = new SolidBrush(Color.RoyalBlue);
+            brush[24] = new SolidBrush(Color.Red);
 
             maxSize = (pictureBox1.Width < pictureBox1.Height) ? pictureBox1.Width : pictureBox1.Height;
         }
