@@ -13,6 +13,7 @@ namespace zarodkowanie
         public int idd;
         public List<int[]> neighbors = new List<int[]>();
         public int numOfNeigh;
+        public int[][] baseNeighbors;
 
         public Cell()
         {
@@ -71,7 +72,7 @@ namespace zarodkowanie
             }
             else y2 = this.id[1] + 1;
 
-            int[][] baseNeighbors = new int[8][] { new int[2] { x1, id[1] }, new int[2] { x1, y1 },new int[2] { id[0], y1 },
+            baseNeighbors = new int[8][] { new int[2] { x1, id[1] }, new int[2] { x1, y1 },new int[2] { id[0], y1 },
             new int[2]{x2,y1 },new int[2]{x2,id[1] },new int[2]{x2,y2 },new int[2]{id[0],y2 },new int[2]{x1,y2 } };
 
             switch (nType)

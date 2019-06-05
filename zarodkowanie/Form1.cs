@@ -279,5 +279,67 @@ namespace zarodkowanie
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e) //promieniowe
+        {
+            size = (int)numericUpDown1.Value;
+            bH = (int)numericUpDown2.Value;
+            nh = domainUpDown2.SelectedIndex;
+            bc = domainUpDown1.SelectedIndex;
+
+            if (nh == 8)
+            {
+                Random r = new Random();
+                nh = r.Next(2, 5);
+            }
+
+            zarodki = (int)numericUpDown3.Value;
+
+            cellSize = (size > bH) ? maxSize / size : maxSize / bH;
+
+            int width = cellSize * size;
+            int height = cellSize * bH;
+            pictureBox1.Width = width;
+            pictureBox1.Height = height;
+
+            pictureBox1.Refresh();
+            board = new Board(size, bH, nh, bc);
+
+
+            zarodkowanie = new Zarodkowanie(board, bH, cellSize);
+
+            graphics = pictureBox1.CreateGraphics();
+
+            zarodkowanie.startBoard.setup_radial(zarodki);
+
+            numericUpDown3.Value = zarodkowanie.startBoard.zarodki;
+
+            zarodkowanie.drawResult(width, height, graphics, brush, zarodki);
+
+
+
+            int zeroes = 0;
+            foreach (var c in board.cells)
+            {
+                if (c.Life == 0)
+                    zeroes++;
+            }
+
+            while (zeroes > 0)
+            {
+
+                Thread.Sleep(300);
+
+                zarodkowanie.startBoard.update(zarodki);
+                zarodkowanie.drawResult(width, height, graphics, brush, zarodki);
+
+                zeroes = 0;
+                foreach (var c in board.cells)
+                {
+                    if (c.Life == 0)
+                        zeroes++;
+                }
+            }
+        }
     }
     }

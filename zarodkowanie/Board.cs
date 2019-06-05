@@ -14,6 +14,8 @@ namespace zarodkowanie
         public int neighborhoodType;
         public int boundaryConditionType;
 
+        public int zarodki=0;
+
         public Board(int size, int boardH, int neighborhoodType, int bcType)
         {
             this.boardH = boardH;
@@ -43,6 +45,7 @@ namespace zarodkowanie
 
         public void setup_randomly(int z)
         {
+            this.zarodki = z;
             Random r = new Random();
 
             List<int> idds = new List<int>();
@@ -65,6 +68,7 @@ namespace zarodkowanie
 
         public void setup_homogeneus(int z, int h, int w)
         {
+            this.zarodki = z;
             double scale = (double)w / (double)h;
             double asqrt = z * scale;
 
@@ -100,7 +104,62 @@ namespace zarodkowanie
 
         public void setup_manually(int x, int y, int z)
         {
+            if (this.zarodki < z)
+                this.zarodki = z;
             cells[x, y].Life = z;
+        }
+
+
+        public void setup_radial(int z)
+        {
+            int i = 1;
+            int trying = 0;
+
+            Random r = new Random();
+
+            List<int> idds = new List<int>();
+
+            for ( i = 1; i < z + 1; i++)
+            {
+                int rr = r.Next(0, (boardH * size));
+                if (idds.Contains(rr))
+                    i--;
+                else
+                {
+                    idds.Add(rr);
+                    int x = rr % size;
+                    int y = rr / size;
+
+                    bool free = true;
+
+                    for(int n=0;n<8;n++)
+                    {
+                        if(cells[cells[x,y].baseNeighbors[n][0], cells[x, y].baseNeighbors[n][1]].Life>0)
+                        {
+                            free = false;
+                            break;
+                        }
+                    }
+                    if (free == true)
+                    {
+                        cells[x, y].Life = i;
+                        trying = 0;
+                    }
+                    else
+                    {
+                        i--;
+                        trying++;
+                        if (trying >= 10)
+                        {
+                            z = i + 1;
+                            break;
+                        }
+                    }
+                }
+
+                this.zarodki = z;
+            }
+            this.zarodki = i-1;
         }
 
 

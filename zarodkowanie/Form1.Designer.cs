@@ -71,6 +71,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "z promieniem";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -159,7 +160,6 @@
             this.domainUpDown1.ReadOnly = true;
             this.domainUpDown1.Size = new System.Drawing.Size(246, 30);
             this.domainUpDown1.TabIndex = 9;
-
             // 
             // label1
             // 
