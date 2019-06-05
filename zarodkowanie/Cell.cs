@@ -18,8 +18,10 @@ namespace zarodkowanie
         public int cellSize;
 
         //global barycentre
-        int bx;
-        int by;
+        public int bx;
+        public int by;
+
+        public int energy = 0;
 
         public Cell()
         {
@@ -190,5 +192,6 @@ namespace zarodkowanie
 
             numOfNeigh = neighbors.Count();
         }
+
     }
 }

@@ -41,6 +41,8 @@ namespace zarodkowanie
             {
                 c.setNeighbors(this.size, this.boardH, this.neighborhoodType, this.boundaryConditionType);
             }
+
+            this.setEnergy();
         }
 
         public void setup_randomly(int z)
@@ -203,6 +205,29 @@ namespace zarodkowanie
                         cells[nextRound[i][j][0], nextRound[i][j][1]].Life = i;
                 }
             }
+        }
+
+        public void setEnergy()
+        {
+            foreach (var c in cells)
+            {
+                int e = 0;
+                List<int> differentNeighbors = new List<int>();
+
+                for (int n = 0; n < 8; n++)
+                {
+                    if (cells[c.baseNeighbors[n][0], c.baseNeighbors[n][1]].Life !=c.Life)
+                    {
+                        if (!differentNeighbors.Contains(cells[c.baseNeighbors[n][0], c.baseNeighbors[n][1]].Life))
+                        {
+                            differentNeighbors.Add(cells[c.baseNeighbors[n][0], c.baseNeighbors[n][1]].Life);
+                            e++;
+                        }
+                    }
+                }
+                c.energy = e;
+            }
+
         }
     }
 }
