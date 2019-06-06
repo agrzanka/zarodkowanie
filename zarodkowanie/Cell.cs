@@ -46,7 +46,7 @@ namespace zarodkowanie
 
         }
 
-        public void setNeighbors(int boardSize, int boardH, int nType, int bcType)
+        public void setNeighbors(int boardSize, int boardH, int nType, int bcType, Cell[,] cells, int radius)
         {
             List<int> periodical = new List<int>();
 
@@ -162,6 +162,17 @@ namespace zarodkowanie
                     neighbors.Add(baseNeighbors[4]);
                     neighbors.Add(baseNeighbors[5]);
                     neighbors.Add(baseNeighbors[6]);
+                    break;
+
+                case 9:
+                    foreach(var c in cells)
+                    {
+                        if(Math.Pow((c.bx-bx),2)+ Math.Pow((c.by - by), 2)<=Math.Pow(radius,2))
+                        {
+                            int[] n = new int[2] { c.id[0], c.id[1] };
+                            neighbors.Add(n);
+                        }
+                    }
                     break;
 
 

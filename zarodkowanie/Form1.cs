@@ -25,6 +25,7 @@ namespace zarodkowanie
 
         int nh;
         int bc;
+        int radius;
 
         int width;
         int height;
@@ -72,6 +73,7 @@ namespace zarodkowanie
             bH = (int)numericUpDown2.Value;
             nh=domainUpDown2.SelectedIndex;
             bc = domainUpDown1.SelectedIndex;
+            radius = (int)numericUpDown4.Value;
 
             if(nh==8)
             {
@@ -95,7 +97,7 @@ namespace zarodkowanie
             pictureBox1.Height = height;
 
             pictureBox1.Refresh();
-            board = new Board(size, bH, nh, bc, cellSize);
+            board = new Board(size, bH, nh, bc, cellSize, radius);
             
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
@@ -132,11 +134,20 @@ namespace zarodkowanie
         private void button4_Click(object sender, EventArgs e) //manual
         {
             nh = domainUpDown2.SelectedIndex;
+
+            if (nh == 8)
+            {
+                Random r = new Random();
+                nh = r.Next(2, 5);
+            }
+
             bc = domainUpDown1.SelectedIndex;
 
             size = (int)numericUpDown1.Value;
             bH = (int)numericUpDown2.Value;
             zarodki = (int)numericUpDown3.Value;
+            radius = (int)numericUpDown4.Value;
+
             int maxZ = size * bH;
             if (zarodki > maxZ)
             {
@@ -155,7 +166,7 @@ namespace zarodkowanie
 
             pictureBox1.Refresh();
 
-            board = new Board(size, bH, nh,bc, cellSize);
+            board = new Board(size, bH, nh,bc, cellSize, radius);
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
             graphics = pictureBox1.CreateGraphics();
 
@@ -196,6 +207,7 @@ namespace zarodkowanie
             bH = (int)numericUpDown2.Value;
             nh = domainUpDown2.SelectedIndex;
             bc = domainUpDown1.SelectedIndex;
+            radius = (int)numericUpDown4.Value;
 
             if (nh == 8)
             {
@@ -219,7 +231,7 @@ namespace zarodkowanie
             pictureBox1.Height = height;
 
             pictureBox1.Refresh();
-            board = new Board(size, bH, nh, bc, cellSize);
+            board = new Board(size, bH, nh, bc, cellSize, radius);
 
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);
@@ -286,6 +298,7 @@ namespace zarodkowanie
             bH = (int)numericUpDown2.Value;
             nh = domainUpDown2.SelectedIndex;
             bc = domainUpDown1.SelectedIndex;
+            radius = (int)numericUpDown4.Value;
 
             if (nh == 8)
             {
@@ -303,7 +316,7 @@ namespace zarodkowanie
             pictureBox1.Height = height;
 
             pictureBox1.Refresh();
-            board = new Board(size, bH, nh, bc, cellSize);
+            board = new Board(size, bH, nh, bc, cellSize,radius);
 
 
             zarodkowanie = new Zarodkowanie(board, bH, cellSize);

@@ -13,15 +13,17 @@ namespace zarodkowanie
         public Cell[,] cells;
         public int neighborhoodType;
         public int boundaryConditionType;
+        public int radius;
 
         public int zarodki=0;
 
-        public Board(int size, int boardH, int neighborhoodType, int bcType, int cellSize)
+        public Board(int size, int boardH, int neighborhoodType, int bcType, int cellSize, int radius)
         {
             this.boardH = boardH;
             this.size = size;
             this.neighborhoodType = neighborhoodType;
             this.boundaryConditionType = bcType;
+            this.radius = radius;
 
             cells = new Cell[this.size, this.boardH];
 
@@ -39,7 +41,7 @@ namespace zarodkowanie
 
             foreach (var c in cells)
             {
-                c.setNeighbors(this.size, this.boardH, this.neighborhoodType, this.boundaryConditionType);
+                c.setNeighbors(this.size, this.boardH, this.neighborhoodType, this.boundaryConditionType, this.cells, this.radius);
             }
 
             this.setEnergy();
