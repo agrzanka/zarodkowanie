@@ -31,6 +31,15 @@ namespace zarodkowanie
                             graphics.FillRectangle(brush[(colour-1)%25], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
         }
 
+        public void drawEnergy(int width, int height, Graphics graphics, SolidBrush[] energyBrush)
+        {
+            for (int i = 0; i < boardH; i++)
+                for (int s = 0; s < startBoard.size; s++)
+                    for (int colour = 0; colour < 8 + 1; colour++)
+                        if (startBoard.cells[s, i].energy == colour)
+                            graphics.FillRectangle(energyBrush[colour], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
+        }
+
         
     }
 }

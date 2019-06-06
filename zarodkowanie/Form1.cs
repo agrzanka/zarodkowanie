@@ -14,6 +14,8 @@ namespace zarodkowanie
     public partial class Form1 : Form
     {
         SolidBrush[] brush = new SolidBrush[25];
+        SolidBrush[] energyBrush = new SolidBrush[8];
+
         int maxSize;
         bool manualMode = false;
         Graphics graphics;
@@ -62,6 +64,15 @@ namespace zarodkowanie
             brush[22] = new SolidBrush(Color.Silver);
             brush[23] = new SolidBrush(Color.RoyalBlue);
             brush[24] = new SolidBrush(Color.Red);
+
+            energyBrush[0] = new SolidBrush(Color.FromArgb(255,255,160,160));
+            energyBrush[1] = new SolidBrush(Color.FromArgb(255, 255, 160, 160));
+            energyBrush[2] = new SolidBrush(Color.FromArgb(255, 255, 110, 110));
+            energyBrush[3] = new SolidBrush(Color.FromArgb(255, 255, 64, 64));
+            energyBrush[4] = new SolidBrush(Color.FromArgb(255, 200, 10, 10));
+            energyBrush[5] = new SolidBrush(Color.FromArgb(255, 164, 0, 0));
+            energyBrush[6] = new SolidBrush(Color.FromArgb(255, 120, 0, 0));
+            energyBrush[7] = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
 
             maxSize = (pictureBox1.Width < pictureBox1.Height) ? pictureBox1.Width : pictureBox1.Height;
         }
@@ -129,6 +140,9 @@ namespace zarodkowanie
                         zeroes++;
                 }
             }
+
+            board = zarodkowanie.startBoard;
+            zarodkowanie.startBoard.setEnergy();
         }
     
         private void button4_Click(object sender, EventArgs e) //manual
@@ -199,6 +213,8 @@ namespace zarodkowanie
                         zeroes++;
                 }
             }
+            board = zarodkowanie.startBoard;
+            zarodkowanie.startBoard.setEnergy();
         }
 
         private void button1_Click(object sender, EventArgs e) //jednorodnie
@@ -265,6 +281,8 @@ namespace zarodkowanie
                         zeroes++;
                 }
             }
+            board = zarodkowanie.startBoard;
+            zarodkowanie.startBoard.setEnergy();
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -353,6 +371,18 @@ namespace zarodkowanie
                         zeroes++;
                 }
             }
+            board = zarodkowanie.startBoard;
+            zarodkowanie.startBoard.setEnergy();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            zarodkowanie.drawResult(width, height, graphics, brush, zarodki);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            zarodkowanie.drawEnergy(width, height, graphics, energyBrush);
         }
     }
     }
