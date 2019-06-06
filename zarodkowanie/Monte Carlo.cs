@@ -55,6 +55,8 @@ namespace zarodkowanie
 
                 idds.RemoveAt(rr);
             }
+
+            zarodkowanie.startBoard.setEnergy();
         }
     }
 }

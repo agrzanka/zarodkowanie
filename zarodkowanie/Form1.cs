@@ -387,12 +387,33 @@ namespace zarodkowanie
 
         private void button8_Click(object sender, EventArgs e)
         {
-            double kt = Convert.ToDouble(maskedTextBox1.Text);
+            double kt=0.1;
+            if (Convert.ToDouble(maskedTextBox1.Text) > 0.1)
+                kt = Convert.ToDouble(maskedTextBox1.Text);
+            if (kt < 0.1)
+                kt = 0.1;
+            if (kt > 6.0)
+                kt = 6.0;
 
+
+            int visualisation = domainUpDown3.SelectedIndex;
+            int multiplicity = (int)numericUpDown5.Value;
+  
             Monte_Carlo mc = new Monte_Carlo(zarodkowanie, kt);
-            mc.compute();
-
-            zarodkowanie.drawResult(width, height, graphics, brush, zarodki);
+            for(int i=0;i<multiplicity;i++)
+            {
+                mc.compute();
+                if(visualisation==1)
+                {
+                    zarodkowanie.drawResult(width, height, graphics, brush, zarodki);
+                }
+                else
+                {
+                    zarodkowanie.drawEnergy(width, height, graphics, energyBrush);
+                }
+                
+            }
+            
         }
     }
     }

@@ -35,9 +35,9 @@ namespace zarodkowanie
         {
             for (int i = 0; i < boardH; i++)
                 for (int s = 0; s < startBoard.size; s++)
-                    for (int colour = 0; colour < 8 + 1; colour++)
+                    for (int colour = 0; colour < 8 ; colour++)
                         if (startBoard.cells[s, i].energy == colour)
-                            graphics.FillRectangle(energyBrush[colour], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
+                            graphics.FillRectangle(energyBrush[colour%8], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
         }
 
         
