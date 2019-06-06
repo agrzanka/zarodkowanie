@@ -204,5 +204,19 @@ namespace zarodkowanie
             numOfNeigh = neighbors.Count();
         }
 
+        public int checkEnergy(int newLife,Cell[,]cells)
+        {
+            int e = 0;
+
+            for (int n = 0; n < 8; n++)
+            {
+                if (cells[baseNeighbors[n][0], baseNeighbors[n][1]].Life != newLife)
+                {
+                    e++;
+                }
+            }
+
+            return e;
+        }
     }
 }

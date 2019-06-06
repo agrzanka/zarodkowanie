@@ -384,5 +384,15 @@ namespace zarodkowanie
         {
             zarodkowanie.drawEnergy(width, height, graphics, energyBrush);
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            double kt = Convert.ToDouble(maskedTextBox1.Text);
+
+            Monte_Carlo mc = new Monte_Carlo(zarodkowanie, kt);
+            mc.compute();
+
+            zarodkowanie.drawResult(width, height, graphics, brush, zarodki);
+        }
     }
     }
