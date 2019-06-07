@@ -41,7 +41,7 @@ namespace zarodkowanie
             InitializeComponent();
             brush[0] = new SolidBrush(Color.Bisque);
             brush[1] = new SolidBrush(Color.DarkTurquoise);
-            brush[2] = new SolidBrush(Color.Black);
+            brush[2] = new SolidBrush(Color.CadetBlue);
             brush[3] = new SolidBrush(Color.Tomato);
             brush[4] = new SolidBrush(Color.RoyalBlue);
             brush[5] = new SolidBrush(Color.Blue);
@@ -415,5 +415,20 @@ namespace zarodkowanie
             }
             
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+           // double A = Convert.ToDouble(textBox1.Text);
+            double A = 86710969050178.5;
+            //double B = Convert.ToDouble(textBox2);
+            double B = 9.412682035;
+            double timeStep = 0.001;
+           // double tMax = Convert.ToDouble(textBox3.Text);
+            double tMax = 0.2;
+
+            DRX drx = new DRX(A, B, timeStep, tMax, zarodkowanie);
+            drx.compute(graphics, brush, zarodki);
+
+        }
     }
-    }
+}

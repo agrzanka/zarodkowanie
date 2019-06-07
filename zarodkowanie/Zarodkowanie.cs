@@ -40,6 +40,18 @@ namespace zarodkowanie
                             graphics.FillRectangle(energyBrush[colour%8], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
         }
 
-        
+        public void drawRDX(int width, int height, Graphics graphics, SolidBrush[] brush, int zarodki)
+        {
+            SolidBrush bbb = new SolidBrush(Color.Black);
+            for (int i = 0; i < boardH; i++)
+                for (int s = 0; s < startBoard.size; s++)
+                {
+                    if(startBoard.cells[s,i].rekryst==true)
+                        graphics.FillRectangle(bbb, s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
+                    for (int colour = 1; colour < zarodki + 1; colour++)
+                        if (startBoard.cells[s, i].Life == colour)
+                            graphics.FillRectangle(brush[(colour - 1) % 25], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
+                }
+        }
     }
 }
