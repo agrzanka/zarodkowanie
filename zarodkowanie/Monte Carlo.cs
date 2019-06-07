@@ -47,11 +47,14 @@ namespace zarodkowanie
 
                 deltaE = zarodkowanie.startBoard.cells[x, y].energy - e1;
 
-                p = Math.Exp(-((double)deltaE / kt));
-                prob = probability.NextDouble();
+                if(deltaE>=0)
+                {
+                    p = Math.Exp(-((double)deltaE / kt));
+                    prob = probability.NextDouble();
 
-                if (prob < p)
-                    zarodkowanie.startBoard.cells[x, y].Life = newLife;
+                    if (prob < p)
+                        zarodkowanie.startBoard.cells[x, y].Life = newLife;
+                }
 
                 idds.RemoveAt(rr);
             }
