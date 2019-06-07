@@ -21,11 +21,11 @@ namespace zarodkowanie
         public int bx;
         public int by;
 
-        public int energy = 0;
+        public int energy;
 
-        public double ro = 0;
+        public double ro;
 
-        public bool rekryst=false;
+        public bool rekryst;
 
         public Cell()
         {
@@ -49,6 +49,8 @@ namespace zarodkowanie
             this.by = ((int)(localBY * cellSize)) + cellSize * id[1];
 
             this.ro = 0;
+            this.energy = 0;
+            this.rekryst = false;
         }
 
         public void setNeighbors(int boardSize, int boardH, int nType, int bcType, Cell[,] cells, int radius)

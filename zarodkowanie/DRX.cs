@@ -37,16 +37,27 @@ namespace zarodkowanie
             this.ro = 0;
         }
 
-        public void compute(Graphics graphics, SolidBrush[] brush, int zarodki)
+        public void compute(Graphics graphics)
         {
             int iterations = (int)(tMax / timeStep);
 
-            for(int i=0;i<iterations;i++)
+            for(int iter=0;iter<iterations;iter++)
             {
                 
                 singleIteration();
                 time += timeStep;
-                zarodkowanie.drawRDX(zarodkowanie.startBoard.size, zarodkowanie.startBoard.boardH, graphics, brush, zarodki);
+                //zarodkowanie.drawRDX(zarodkowanie.startBoard.size, zarodkowanie.startBoard.boardH, graphics);
+                SolidBrush bbb = new SolidBrush(Color.Black);
+                for (int h = 0; h < zarodkowanie.startBoard.boardH; h++)
+                    for (int s = 0; s < zarodkowanie.startBoard.size; s++)
+                    {
+                        // for (int colour = 1; colour < zarodki + 1; colour++)
+                        //    if (startBoard.cells[s, i].Life == colour)
+                        //         graphics.FillRectangle(brush[(colour - 1) % 25], s * this.cellSize, i * this.cellSize, this.cellSize, this.cellSize);
+
+                        if (zarodkowanie.startBoard.cells[s, h].rekryst == true)
+                            graphics.FillRectangle(bbb, s * zarodkowanie.cellSize, h * zarodkowanie.cellSize, zarodkowanie.cellSize, zarodkowanie.cellSize);
+                    }
             }
         }
 
@@ -54,9 +65,9 @@ namespace zarodkowanie
         {
             double AdivB = (A / B);
             double oneAdivB = 1 - AdivB;
-            double expo = Math.Exp(B * time);
+            double expo = Math.Exp(-(B * time));
             double nextRo = AdivB + oneAdivB*expo;
-            this.deltaRO = nextRo = ro;
+            this.deltaRO = nextRo - ro;
             ro = nextRo;
 
             int numOfCells = zarodkowanie.startBoard.boardH * zarodkowanie.startBoard.size;
@@ -70,10 +81,10 @@ namespace zarodkowanie
 
             foreach(var cell in zarodkowanie.startBoard.cells)
             {
-                cell.ro += (singleDeltaRO * percent);
+                cell.ro += (singleDeltaRO * 0.3);//percent);
             }
 
-            deltaRO = deltaRO * (1 - percent);
+            deltaRO = deltaRO * (1.0 - percent);
 
             double prob;
 
@@ -95,7 +106,10 @@ namespace zarodkowanie
                 double p = probability.NextDouble();
 
                 if (p < prob)
+                {
                     zarodkowanie.startBoard.cells[x, y].ro += deltaRO * percent;
+                    deltaRO -= deltaRO * percent;
+                }
             }
 
             //checking rules:

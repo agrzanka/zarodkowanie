@@ -411,7 +411,7 @@ namespace zarodkowanie
                 {
                     zarodkowanie.drawEnergy(width, height, graphics, energyBrush);
                 }
-                
+                Thread.Sleep(300);
             }
             
         }
@@ -427,7 +427,7 @@ namespace zarodkowanie
             double tMax = 0.2;
 
             DRX drx = new DRX(A, B, timeStep, tMax, zarodkowanie);
-            drx.compute(graphics, brush, zarodki);
+            drx.compute(graphics);
 
         }
     }
